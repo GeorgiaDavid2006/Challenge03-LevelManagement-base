@@ -9,13 +9,13 @@ public class LevelChangeTrigger : MonoBehaviour
 
     private void Start()
     {
-        levelManager = GameObject.FindAnyObjectByType<LevelManager>();
+        levelManager = ServiceHub.Instance.levelManager;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            levelManager.LevelChange(levelToActivate, spawnLocation);
+            levelManager.LevelChange(levelToActivate, spawnLocation, other.gameObject);
         }
     }
 

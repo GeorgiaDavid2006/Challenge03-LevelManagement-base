@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField]
     private GameObject currentLevel;
 
     void Start()
@@ -15,9 +16,11 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void LevelChange(GameObject level, Transform spawnPoint)
+    public void LevelChange(GameObject level, Transform spawnPoint, GameObject player)
     {
         currentLevel.SetActive(false);
         level.SetActive(true);
+        player.transform.position = spawnPoint.position;
+        currentLevel = level;
     }
 }
