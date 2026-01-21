@@ -4,9 +4,6 @@ public class LevelManager : MonoBehaviour
 {
     private GameObject currentLevel;
 
-    public GameObject level1;
-    public GameObject level2;
-
     void Start()
     {
         
@@ -18,9 +15,9 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    public void LevelChange()
+    public void LevelChange(GameObject level, Transform spawnPoint)
     {
-        level1.SetActive(false);
-        level2.SetActive(true);
+        currentLevel.SetActive(false);
+        level.SetActive(true);
     }
 }
